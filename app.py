@@ -13,8 +13,8 @@ st.set_page_config(layout="wide")
 
 # ---------- CONFIG ----------
 ROOMS_BY_FLOOR = {
-    "5.OG": [f"UB Recht / 50{i} / 5.OG" for i in range(0, 10)],
-    "6.OG": [f"UB Recht / 60{i} / 6.OG" for i in range(0, 6)],
+    "1.OG": [f"Bibliothek / {i:03d} / 1.OG" for i in range(1, 228)],
+    "EG":   [f"Bibliothek / {i:03d} /   EG" for i in range(1, 182)],
 }
 ALL_ROOMS = sum(ROOMS_BY_FLOOR.values(), [])
 
@@ -232,7 +232,7 @@ elif menu == "Reservierungsübersicht":
         [today + timedelta(days=i) for i in range(7)],
         format_func=lambda d: d.strftime("%A, %d. %B %Y"),
     )
-    start_hour, end_hour = 8, 19
+    start_hour, end_hour = 8, 22
     grid_data = []
 
     all_res = pd.read_sql(
